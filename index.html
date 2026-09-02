@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>SUNRISE DESCENT — Cel-Shaded Downhill BMX</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- Loading screen -->
+  <div id="loading" class="overlay">
+    <div class="load-title">SUNRISE<span>DESCENT</span></div>
+    <div class="load-sub">carving the mountain…</div>
+    <div class="load-bar"><div id="load-fill"></div></div>
+    <div id="load-msg">generating bedrock</div>
+  </div>
+
+  <!-- Title / menu -->
+  <div id="menu" class="overlay hidden">
+    <div class="menu-card">
+      <div class="menu-title">SUNRISE<span>DESCENT</span></div>
+      <div class="menu-tagline">4 riders · 1 mountain · summit to valley floor</div>
+      <button id="btn-start" class="menu-btn">DROP IN</button>
+      <div class="menu-help">
+        <div><b>A / D</b> steer &amp; lean</div>
+        <div><b>W</b> pedal &nbsp;·&nbsp; <b>S</b> brake / crouch-preload (release at lip to pump)</div>
+        <div><b>SPACE</b> bunny hop &nbsp;·&nbsp; <b>SHIFT</b> boost (earn it with tricks)</div>
+        <div><b>In air:</b> A/D spin · W/S flip · Q/E whip — or keys <b>1–6</b> for named tricks</div>
+        <div><b>T</b> back on course if the mountain eats you &nbsp;·&nbsp; <b>R</b> restart run</div>
+      </div>
+      <div id="menu-best" class="menu-best"></div>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="hud-speed"><span id="speed-num">0</span><span class="unit">KM/H</span></div>
+    <div id="hud-pos"><span id="pos-ord">1ST</span></div>
+    <div id="hud-timer">0:00.00</div>
+    <div id="hud-boost"><div class="boost-label">BOOST</div><div class="boost-segs"></div></div>
+    <canvas id="hud-profile" width="280" height="84"></canvas>
+    <div id="trick-pop"></div>
+    <div id="split-toast"></div>
+    <div id="wrongway">WRONG WAY!</div>
+    <div id="corner-hint"></div>
+    <div id="countdown" class="hidden"></div>
+    <div id="air-meter" class="hidden"></div>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="overlay hidden">
+    <div class="results-card">
+      <div class="results-title" id="res-headline">FINISH!</div>
+      <table id="res-table"></table>
+      <div id="res-tricks" class="res-tricks"></div>
+      <div class="res-buttons">
+        <button id="btn-restart" class="menu-btn small">RIDE AGAIN&nbsp;&nbsp;(R)</button>
+        <button id="btn-replay" class="menu-btn small ghosted">WATCH BIGGEST AIR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cine-top" class="cine-bar"></div>
+  <div id="cine-bottom" class="cine-bar"></div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
